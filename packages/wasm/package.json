@@ -1,56 +1,56 @@
 {
-	"name": "@oxvg/wasm",
-	"version": "0.0.9",
-	"type": "module",
-	"description": "",
-	"files": [
-		"dist/oxvg_wasm.d.ts",
-		"dist/oxvg_wasm.js",
-		"dist/oxvg_wasm_bg.wasm",
-		"dist/oxvg_wasm_bg.wasm.d.ts",
-		"dist/node/oxvg_wasm.d.ts",
-		"dist/node/oxvg_wasm.cjs",
-		"dist/node/oxvg_wasm_bg.wasm",
-		"dist/node/oxvg_wasm_bg.wasm.d.ts"
-	],
-	"exports": {
-		".": {
-			"types": "./dist/oxvg_wasm.d.ts",
-			"node": "./dist/node/oxvg_wasm.cjs",
-			"default": "./dist/oxvg_wasm.js"
-		},
-		"./client": {
-			"types": "./dist/oxvg_wasm.d.ts",
-			"default": "./dist/oxvg_wasm.js"
-		},
-		"./server": {
-			"types": "./dist/oxvg_wasm.d.ts",
-			"default": "./dist/node/oxvg_wasm.cjs"
-		}
-	},
-	"main": "dist/oxvg_wasm.js",
-	"types": "dist/oxvg_wasm.d.ts",
-	"scripts": {
-		"build": "pnpm run build:web && pnpm run build:node",
-		"build:debug": "pnpm run build:debug:web && pnpm run build:debug:node",
-		"build:web": "wasm-pack build --target web --no-pack --out-dir dist -- --no-default-features --features web_sys",
-		"build:node": "wasm-pack build --target nodejs --no-pack --out-dir dist/node && npm run build:node:rename",
-		"build:debug:web": "wasm-pack build --dev --target web --no-pack --out-dir dist -- --no-default-features --features web_sys && pnpm run build:debug:web:source-map",
-		"build:debug:web:source-map": "cargo wasm2map dist/oxvg_wasm_bg.wasm",
-		"build:debug:node": "wasm-pack build --dev --target nodejs --no-pack --out-dir dist/node && npm run build:node:rename",
-		"build:node:rename": "mv dist/node/oxvg_wasm.js dist/node/oxvg_wasm.cjs",
-		"test": "node ./test.cjs",
-		"test:update-snapshots": "node --test-update-snapshots ./test.cjs"
-	},
-	"repository": {
-		"url": "https://github.com/noahbald/oxvg",
-		"type": "git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "MIT",
-	"packageManager": "pnpm@11.20.0",
-	"devDependencies": {
-		"wasm-pack": "^0.15"
-	}
+  "name": "@oxvg/wasm",
+  "version": "0.0.9",
+  "type": "module",
+  "description": "",
+  "files": [
+    "dist/oxvg_wasm.d.ts",
+    "dist/oxvg_wasm.js",
+    "dist/oxvg_wasm_bg.wasm",
+    "dist/oxvg_wasm_bg.wasm.d.ts",
+    "dist/node/oxvg_wasm.d.ts",
+    "dist/node/oxvg_wasm.cjs",
+    "dist/node/oxvg_wasm_bg.wasm",
+    "dist/node/oxvg_wasm_bg.wasm.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/oxvg_wasm.d.ts",
+      "node": "./dist/node/oxvg_wasm.cjs",
+      "default": "./dist/oxvg_wasm.js"
+    },
+    "./client": {
+      "types": "./dist/oxvg_wasm.d.ts",
+      "default": "./dist/oxvg_wasm.js"
+    },
+    "./server": {
+      "types": "./dist/oxvg_wasm.d.ts",
+      "default": "./dist/node/oxvg_wasm.cjs"
+    }
+  },
+  "main": "dist/oxvg_wasm.js",
+  "types": "dist/oxvg_wasm.d.ts",
+  "scripts": {
+    "build": "pnpm run build:web && pnpm run build:node",
+    "build:debug": "pnpm run build:debug:web && pnpm run build:debug:node",
+    "build:web": "wasm-pack build --target web --no-pack --out-dir dist -- --no-default-features --features web_sys",
+    "build:node": "wasm-pack build --target nodejs --no-pack --out-dir dist/node && pnpm run build:node:rename",
+    "build:debug:web": "wasm-pack build --dev --target web --no-pack --out-dir dist -- --no-default-features --features web_sys && pnpm run build:debug:web:source-map",
+    "build:debug:web:source-map": "cargo wasm2map dist/oxvg_wasm_bg.wasm",
+    "build:debug:node": "wasm-pack build --dev --target nodejs --no-pack --out-dir dist/node && pnpm run build:node:rename",
+    "build:node:rename": "mv dist/node/oxvg_wasm.js dist/node/oxvg_wasm.cjs",
+    "test": "node ./test.cjs",
+    "test:update-snapshots": "node --test-update-snapshots ./test.cjs"
+  },
+  "repository": {
+    "url": "https://github.com/noahbald/oxvg",
+    "type": "git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@11.20.0",
+  "devDependencies": {
+    "wasm-pack": "^0.15"
+  }
 }

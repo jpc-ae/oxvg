@@ -2138,9 +2138,8 @@ export interface RemoveElementsByAttr {
  *
  * If this job produces an error or panic, please raise an [issue](https://github.com/noahbald/oxvg/issues)
  */
-export interface RemoveEmptyAttrs {
-  field0: boolean
-}
+export type RemoveEmptyAttrs =
+  boolean
 
 /**
  * Removes container elements with no functional children or meaningful attributes.
