@@ -22,7 +22,9 @@ use crate::error::JobsError;
 /// Various types of ways prefixes can be generated for an id.
 pub enum PrefixGenerator {
     /// A string to use as a prefix
-    Prefix(String),
+    Prefix {
+        prefix: String,
+    },
     /// No prefix
     None,
     /// Use "prefix" as prefix
