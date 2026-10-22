@@ -5,3 +5,11 @@ allowBuilds:
   wasm-pack: true
 ignoredBuiltDependencies:
   - wasm-pack
+supportedArchitectures:
+  os:
+    - win32
+    - darwin
+    - linux
+  cpu:
+    - x64
+    - arm64

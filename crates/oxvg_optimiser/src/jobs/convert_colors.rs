@@ -19,7 +19,7 @@ use tsify::Tsify;
 use crate::error::JobsError;
 
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[cfg_attr(feature = "napi", napi(string_enum))]
+#[cfg_attr(feature = "napi", napi(string_enum = "camelCase"))]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[cfg_attr(feature = "jsonschema", derive(schemars::JsonSchema))]
 #[derive(Debug, Default, Clone)]

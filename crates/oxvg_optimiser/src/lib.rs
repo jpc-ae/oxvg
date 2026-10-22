@@ -50,7 +50,7 @@ pub use crate::jobs::*;
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-#[cfg_attr(feature = "napi", napi(string_enum))]
+#[cfg_attr(feature = "napi", napi(string_enum = "camelCase"))]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(from_wasm_abi, into_wasm_abi))]
 #[cfg_attr(feature = "clap", derive(clap::ValueEnum))]

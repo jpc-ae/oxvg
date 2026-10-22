@@ -772,18 +772,18 @@ export interface ConvertTransform {
 /** A preset which the specified jobs can overwrite */
 export declare const enum Extends {
   /** A preset that contains no jobs. */
-  None = 'None',
+  None = 'none',
   /**
    * The default preset.
    * Uses [`crate::Jobs::default`]
    */
-  Default = 'Default',
+  Default = 'default',
   /**
    * The correctness preset. Produces a preset that is less likely to
    * visually change the document.
    * Uses [`crate::Jobs::precheck`]
    */
-  Safe = 'Safe'
+  Safe = 'safe'
 }
 
 /**
@@ -932,9 +932,9 @@ export declare const enum Method {
    * Note, lightningcss is already used during parsing & serializing,
    * so choosing this option effectively skips the job.
    */
-  Lightning = 'Lightning',
+  Lightning = 'lightning',
   /** Convert all colors to `currentcolor`. */
-  CurrentColor = 'CurrentColor'
+  CurrentColor = 'currentColor'
 }
 
 /**
@@ -1526,9 +1526,9 @@ export interface RemoveUnknownsAndDefaults {
 }
 
 export declare const enum RemoveUnused {
-  False = 'False',
-  True = 'True',
-  Force = 'Force'
+  False = 'false',
+  True = 'true',
+  Force = 'force'
 }
 
 /**
@@ -1735,9 +1735,9 @@ export type SortDefsChildren =
 /** The method for ordering xmlns attributes */
 export declare const enum XMLNSOrder {
   /** Sort xmlns attributes alphabetically */
-  Alphabetical = 'Alphabetical',
+  Alphabetical = 'alphabetical',
   /** Keep xmlns attributes at the front of the list */
-  Front = 'Front'
+  Front = 'front'
 }
 /** Tolerance for converting between SVG, Segments, and Polygons */
 export interface Tolerance {

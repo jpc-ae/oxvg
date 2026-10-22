@@ -32,7 +32,7 @@ use super::ContextFlags;
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-#[cfg_attr(feature = "napi", napi(string_enum))]
+#[cfg_attr(feature = "napi", napi(string_enum = "camelCase"))]
 #[derive(Default, Clone, Copy, PartialEq, Debug)]
 pub enum RemoveUnused {
     False,
