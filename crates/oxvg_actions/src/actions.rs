@@ -203,7 +203,7 @@ pub enum Action<'input> {
 }
 
 #[cfg(feature = "napi")]
-#[napi]
+#[napi(discriminant = "actor")]
 /// An action is a method that an actor can execute upon a document
 pub enum ActionNapi {
     /// See [`Actor::about`]
@@ -359,7 +359,7 @@ pub enum ActionNapi {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(from_wasm_abi, into_wasm_abi))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "napi", napi)]
+#[cfg_attr(feature = "napi", napi(discriminant = "actor"))]
 #[derive(Debug, Clone)]
 pub enum UIAction {
     /// The client should copy the SVG contents of `oxvg:clipboard` to the system clipboard.

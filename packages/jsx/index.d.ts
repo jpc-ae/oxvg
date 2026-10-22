@@ -1012,10 +1012,10 @@ export interface Precheck {
 
 /** Various types of ways prefixes can be generated for an id. */
 export type PrefixGenerator =
-  | { type: 'Prefix', /** A string to use as a prefix */
+  | { method: 'Prefix', /** A string to use as a prefix */
 prefix: string }
-| { type: 'None' }
-| { type: 'Default' }
+| { method: 'None' }
+| { method: 'Default' }
 
 /**
  * Prefix element ids and classnames with the filename or provided string. This

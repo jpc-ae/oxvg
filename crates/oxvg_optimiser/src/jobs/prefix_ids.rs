@@ -17,7 +17,7 @@ use tsify::Tsify;
 
 use crate::error::JobsError;
 
-#[cfg_attr(feature = "napi", napi)]
+#[cfg_attr(feature = "napi", napi(discriminant = "method"))]
 #[derive(Default, Clone, Debug)]
 /// Various types of ways prefixes can be generated for an id.
 pub enum PrefixGenerator {

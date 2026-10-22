@@ -135,7 +135,7 @@ macro_rules! define_elements {
         }
 
         #[cfg(feature = "napi")]
-        #[napi]
+        #[napi(discriminant = "element", discriminant_case = "camelCase")]
         /// Identifies an element by it's local-name and namespace
         ///
         /// [MDN | SVG element reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element)

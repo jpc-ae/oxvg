@@ -281,7 +281,7 @@ macro_rules! define_attrs {
         }
 
         #[cfg(feature = "napi")]
-        #[napi]
+        #[napi(discriminant = "attribute", discriminant_case = "camelCase")]
         /// Identifies one of an element's attributes.
         ///
         /// [MDN | SVG Attribute reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute)

@@ -2,72 +2,72 @@
 /* eslint-disable */
 /** An action is a method that an actor can execute upon a document */
 export type ActionNapi =
-  | { type: 'About' }
-  | { type: 'Copy' }
-  | { type: 'Attr', /** The qualified name of the attribute */
+  | { actor: 'About' }
+  | { actor: 'Copy' }
+  | { actor: 'Attr', /** The qualified name of the attribute */
   name: string, /** The value of the attribute */
 value: string }
-| { type: 'Class', /** The name of the class */
+| { actor: 'Class', /** The name of the class */
 name: string }
-| { type: 'Paste' }
-| { type: 'PathIntersect' }
-| { type: 'PathUnion' }
-| { type: 'PathSubtract' }
-| { type: 'PathXor' }
-| { type: 'Style', /** The CSS name of the property */
+| { actor: 'Paste' }
+| { actor: 'PathIntersect' }
+| { actor: 'PathUnion' }
+| { actor: 'PathSubtract' }
+| { actor: 'PathXor' }
+| { actor: 'Style', /** The CSS name of the property */
 property: string, /** The CSS value of the property */
 value: string }
-| { type: 'Matrix', /** a */
+| { actor: 'Matrix', /** a */
 a: number, /** b */
 b: number, /** c */
 c: number, /** d */
 d: number, /** e */
 e: number, /** f */
 f: number }
-| { type: 'Translate', /** x-axis */
+| { actor: 'Translate', /** x-axis */
 x: number, /** y-axis */
 y?: number }
-| { type: 'Scale', /** x-axis */
+| { actor: 'Scale', /** x-axis */
 x: number, /** y-axis */
 y?: number }
-| { type: 'Rotate', /** Angle in degrees */
+| { actor: 'Rotate', /** Angle in degrees */
 angle: number, /** Point about which it rotates */
 origin?: [number, number] }
-| { type: 'SkewX', /** Angle in degrees */
+| { actor: 'SkewX', /** Angle in degrees */
 angle: number }
-| { type: 'SkewY', /** Angle in degrees */
+| { actor: 'SkewY', /** Angle in degrees */
 angle: number }
-| { type: 'Insert', /** SVG element name */
+| { actor: 'Insert', /** SVG element name */
 name: string }
-| { type: 'InsertNS', /** Element namespace */
+| { actor: 'InsertNS', /** Element namespace */
 uri: string, /** Element name */
 name: string }
-| { type: 'Duplicate' }
-| { type: 'Wrap', /** SVG name */
+| { actor: 'Duplicate' }
+| { actor: 'Wrap', /** SVG name */
 name: string }
-| { type: 'Clone' }
-| { type: 'AnchorLink', /** Anchor URL */
+| { actor: 'Clone' }
+| { actor: 'AnchorLink', /** Anchor URL */
 href: string }
-| { type: 'Group' }
-| { type: 'Delete' }
-| { type: 'Flatten' }
-| { type: 'Front' }
-| { type: 'Push' }
-| { type: 'Pull' }
-| { type: 'Back' }
-| { type: 'StepIn' }
-| { type: 'StepOut' }
-| { type: 'Forget' }
-| { type: 'Select', /** CSS selector query */
+| { actor: 'Group' }
+| { actor: 'Delete' }
+| { actor: 'Flatten' }
+| { actor: 'Front' }
+| { actor: 'Push' }
+| { actor: 'Pull' }
+| { actor: 'Back' }
+| { actor: 'StepIn' }
+| { actor: 'StepOut' }
+| { actor: 'Forget' }
+| { actor: 'Select', /** CSS selector query */
 query: string }
-| { type: 'SelectMore', /** CSS selector query */
+| { actor: 'SelectMore', /** CSS selector query */
 query: string }
-| { type: 'FirstChild' }
-| { type: 'PreviousSibling' }
-| { type: 'NextSibling' }
-| { type: 'LastChild' }
-| { type: 'Parent' }
-| { type: 'Deselect' }
+| { actor: 'FirstChild' }
+| { actor: 'PreviousSibling' }
+| { actor: 'NextSibling' }
+| { actor: 'LastChild' }
+| { actor: 'Parent' }
+| { actor: 'Deselect' }
 
 /** The attributes common to the selected elements */
 export interface AttrModelNapi {
@@ -113,8 +113,8 @@ export interface InfoNapi {
 
 /** An action result that requires additional handling from the client. */
 export type UIAction =
-  | { type: 'Copy' }
-  | { type: 'Dialog', heading: string, body: string }
+  | { actor: 'Copy' }
+  | { actor: 'Dialog', heading: string, body: string }
 /** r" Specifies which attribute groups an attribute may belong to */
 export declare class AttributeGroup {
   /** Convert from bits */
@@ -137,475 +137,475 @@ export declare class ElementCategory {
  * [MDN | SVG Attribute reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute)
  */
 export type AttrIdNapi =
-  | { type: 'AccentHeight' }
-  | { type: 'Accumulate' }
-  | { type: 'Additive' }
-  | { type: 'Alphabetic' }
-  | { type: 'Amplitude' }
-  | { type: 'ArabicForm' }
-  | { type: 'AriaActiveDescendant' }
-  | { type: 'AriaAtomic' }
-  | { type: 'AriaAutocomplete' }
-  | { type: 'AriaBusy' }
-  | { type: 'AriaChecked' }
-  | { type: 'AriaColCount' }
-  | { type: 'AriaColIndex' }
-  | { type: 'AriaColSpan' }
-  | { type: 'AriaControls' }
-  | { type: 'AriaCurrent' }
-  | { type: 'AriaDescribedBy' }
-  | { type: 'AriaDetails' }
-  | { type: 'AriaDisabled' }
-  | { type: 'AriaDropEffect' }
-  | { type: 'AriaErrorMessage' }
-  | { type: 'AriaExpanded' }
-  | { type: 'AriaFlowTo' }
-  | { type: 'AriaGrabbed' }
-  | { type: 'AriaHasPopup' }
-  | { type: 'AriaHidden' }
-  | { type: 'AriaInvalid' }
-  | { type: 'AriaKeyshortcuts' }
-  | { type: 'AriaLabel' }
-  | { type: 'AriaLabelledBy' }
-  | { type: 'AriaLevel' }
-  | { type: 'AriaLive' }
-  | { type: 'AriaModal' }
-  | { type: 'AriaMultiline' }
-  | { type: 'AriaMultiselectable' }
-  | { type: 'AriaOrientation' }
-  | { type: 'AriaOwns' }
-  | { type: 'AriaPlaceholder' }
-  | { type: 'AriaPosInSet' }
-  | { type: 'AriaPressed' }
-  | { type: 'AriaReadonly' }
-  | { type: 'AriaRelevant' }
-  | { type: 'AriaRequired' }
-  | { type: 'AriaRoleDescription' }
-  | { type: 'AriaRowCount' }
-  | { type: 'AriaRowIndex' }
-  | { type: 'AriaRowSpan' }
-  | { type: 'AriaSelected' }
-  | { type: 'AriaSetSize' }
-  | { type: 'AriaSort' }
-  | { type: 'AriaValueMax' }
-  | { type: 'AriaValueMin' }
-  | { type: 'AriaValueNow' }
-  | { type: 'AriaValueText' }
-  | { type: 'Ascent' }
-  | { type: 'AttributeName' }
-  | { type: 'AttributeType' }
-  | { type: 'AutoFocus' }
-  | { type: 'Azimuth' }
-  | { type: 'BaseFrequency' }
-  | { type: 'BaseProfile' }
-  | { type: 'Bbox' }
-  | { type: 'Begin' }
-  | { type: 'Bias' }
-  | { type: 'By' }
-  | { type: 'CalcMode' }
-  | { type: 'CapHeight' }
-  | { type: 'Class' }
-  | { type: 'ClipPathUnits' }
-  | { type: 'ContentScriptType' }
-  | { type: 'ContentStyleType' }
-  | { type: 'CrossOrigin' }
-  | { type: 'CXGeometry' }
-  | { type: 'CXRadialGradient' }
-  | { type: 'CYGeometry' }
-  | { type: 'CYRadialGradient' }
-  | { type: 'D' }
-  | { type: 'Descent' }
-  | { type: 'DiffuseConstant' }
-  | { type: 'Divisor' }
-  | { type: 'Download' }
-  | { type: 'Dur' }
-  | { type: 'DXAltGlyph' }
-  | { type: 'DXFeDropShadow' }
-  | { type: 'DXFeOffset' }
-  | { type: 'DXGlyphRef' }
-  | { type: 'DXText' }
-  | { type: 'DXTSpan' }
-  | { type: 'DYAltGlyph' }
-  | { type: 'DYFeDropShadow' }
-  | { type: 'DYFeOffset' }
-  | { type: 'DYGlyphRef' }
-  | { type: 'DYText' }
-  | { type: 'DYTSpan' }
-  | { type: 'EdgeModeFeConvolveMatrix' }
-  | { type: 'EdgeModeFeGaussianBlur' }
-  | { type: 'Elevation' }
-  | { type: 'End' }
-  | { type: 'Exponent' }
-  | { type: 'ExternalResourcesRequired' }
-  | { type: 'FillAnimate' }
-  | { type: 'FilterRes' }
-  | { type: 'FilterUnits' }
-  | { type: 'Format' }
-  | { type: 'FR' }
-  | { type: 'From' }
-  | { type: 'FX' }
-  | { type: 'FY' }
-  | { type: 'G1' }
-  | { type: 'G2' }
-  | { type: 'GlyphName' }
-  | { type: 'GlyphRef' }
-  | { type: 'GradientTransform' }
-  | { type: 'GradientUnits' }
-  | { type: 'Hanging' }
-  | { type: 'HatchContentUnits' }
-  | { type: 'HatchUnits' }
-  | { type: 'HeightFilter' }
-  | { type: 'HeightForeignObject' }
-  | { type: 'HeightImage' }
-  | { type: 'HeightPattern' }
-  | { type: 'HeightRect' }
-  | { type: 'HeightSvg' }
-  | { type: 'HeightSymbol' }
-  | { type: 'HeightUse' }
-  | { type: 'HeightFe' }
-  | { type: 'HeightMask' }
-  | { type: 'HorizAdvX' }
-  | { type: 'HorizOriginX' }
-  | { type: 'HorizOriginY' }
-  | { type: 'Href' }
-  | { type: 'Hreflang' }
-  | { type: 'Id' }
-  | { type: 'Ideographic' }
-  | { type: 'In' }
-  | { type: 'In2' }
-  | { type: 'Intercept' }
-  | { type: 'K' }
-  | { type: 'K1' }
-  | { type: 'K2' }
-  | { type: 'K3' }
-  | { type: 'K4' }
-  | { type: 'KernelMatrix' }
-  | { type: 'KernelUnitLength' }
-  | { type: 'KeyPoints' }
-  | { type: 'KeySplines' }
-  | { type: 'KeyTimes' }
-  | { type: 'Lang' }
-  | { type: 'LengthAdjust' }
-  | { type: 'LimitingConeAngle' }
-  | { type: 'Local' }
-  | { type: 'MarkerHeight' }
-  | { type: 'MarkerUnits' }
-  | { type: 'MarkerWidth' }
-  | { type: 'MaskContentUnits' }
-  | { type: 'MaskUnits' }
-  | { type: 'Mathematical' }
-  | { type: 'Max' }
-  | { type: 'Media' }
-  | { type: 'Method' }
-  | { type: 'Min' }
-  | { type: 'Mode' }
-  | { type: 'NameColorProfile' }
-  | { type: 'NameFontFace' }
-  | { type: 'NumOctaves' }
-  | { type: 'OffsetStop' }
-  | { type: 'OffsetFe' }
-  | { type: 'OffsetHatchPath' }
-  | { type: 'OnAbort' }
-  | { type: 'OnActivate' }
-  | { type: 'OnBegin' }
-  | { type: 'OnCancel' }
-  | { type: 'OnCanplay' }
-  | { type: 'OnCanplaythrough' }
-  | { type: 'OnChange' }
-  | { type: 'OnClick' }
-  | { type: 'OnClose' }
-  | { type: 'OnCopy' }
-  | { type: 'OnCuechange' }
-  | { type: 'OnCut' }
-  | { type: 'OnDblclick' }
-  | { type: 'OnDrag' }
-  | { type: 'OnDragend' }
-  | { type: 'OnDragenter' }
-  | { type: 'OnDragexit' }
-  | { type: 'OnDragleave' }
-  | { type: 'OnDragover' }
-  | { type: 'OnDragstart' }
-  | { type: 'OnDrop' }
-  | { type: 'OnDurationchange' }
-  | { type: 'OnEmptied' }
-  | { type: 'OnEnd' }
-  | { type: 'OnEnded' }
-  | { type: 'OnError' }
-  | { type: 'OnFocusIn' }
-  | { type: 'OnFocusOut' }
-  | { type: 'OnFocus' }
-  | { type: 'OnInput' }
-  | { type: 'OnInvalid' }
-  | { type: 'OnKeydown' }
-  | { type: 'OnKeypress' }
-  | { type: 'OnKeyup' }
-  | { type: 'OnLoad' }
-  | { type: 'OnLoadeddata' }
-  | { type: 'OnLoadedmetadata' }
-  | { type: 'OnLoadstart' }
-  | { type: 'OnMousedown' }
-  | { type: 'OnMouseenter' }
-  | { type: 'OnMouseleave' }
-  | { type: 'OnMousemove' }
-  | { type: 'OnMouseout' }
-  | { type: 'OnMouseover' }
-  | { type: 'OnMouseup' }
-  | { type: 'OnPaste' }
-  | { type: 'OnPause' }
-  | { type: 'OnPlay' }
-  | { type: 'OnPlaying' }
-  | { type: 'OnProgress' }
-  | { type: 'OnRatechange' }
-  | { type: 'OnRepeat' }
-  | { type: 'OnReset' }
-  | { type: 'OnResize' }
-  | { type: 'OnScroll' }
-  | { type: 'OnSeeked' }
-  | { type: 'OnSeeking' }
-  | { type: 'OnSelect' }
-  | { type: 'OnShow' }
-  | { type: 'OnStalled' }
-  | { type: 'OnSubmit' }
-  | { type: 'OnSuspend' }
-  | { type: 'OnTimeupdate' }
-  | { type: 'OnToggle' }
-  | { type: 'OnUnload' }
-  | { type: 'OnVolumechange' }
-  | { type: 'OnWaiting' }
-  | { type: 'OnWheel' }
-  | { type: 'OnZoom' }
-  | { type: 'OperatorFeComposite' }
-  | { type: 'OperatorFeMorphology' }
-  | { type: 'Order' }
-  | { type: 'Orient' }
-  | { type: 'Orientation' }
-  | { type: 'Origin' }
-  | { type: 'OverlinePosition' }
-  | { type: 'OverlineThickness' }
-  | { type: 'Panose1' }
-  | { type: 'Path' }
-  | { type: 'PathLength' }
-  | { type: 'PatternContentUnits' }
-  | { type: 'PatternTransform' }
-  | { type: 'PatternUnits' }
-  | { type: 'Ping' }
-  | { type: 'Pitch' }
-  | { type: 'Playbackorder' }
-  | { type: 'Points' }
-  | { type: 'PointsAtX' }
-  | { type: 'PointsAtY' }
-  | { type: 'PointsAtZ' }
-  | { type: 'PreserveAlpha' }
-  | { type: 'PreserveAspectRatio' }
-  | { type: 'PrimitiveUnits' }
-  | { type: 'Radius' }
-  | { type: 'ReferrerPolicy' }
-  | { type: 'RefX' }
-  | { type: 'RefY' }
-  | { type: 'Rel' }
-  | { type: 'RenderingIntent' }
-  | { type: 'RepeatCount' }
-  | { type: 'RepeatDur' }
-  | { type: 'RequiredExtensions' }
-  | { type: 'RequiredFeatures' }
-  | { type: 'Restart' }
-  | { type: 'Result' }
-  | { type: 'Role' }
-  | { type: 'RotateText' }
-  | { type: 'RotateAnimate' }
-  | { type: 'RotateHatch' }
-  | { type: 'RX' }
-  | { type: 'RY' }
-  | { type: 'RGeometry' }
-  | { type: 'RRadialGradient' }
-  | { type: 'Scale' }
-  | { type: 'Seed' }
-  | { type: 'Side' }
-  | { type: 'SlopeFont' }
-  | { type: 'SlopeFe' }
-  | { type: 'SolidColor' }
-  | { type: 'SolidOpacity' }
-  | { type: 'Spacing' }
-  | { type: 'SpecularConstant' }
-  | { type: 'SpecularExponent' }
-  | { type: 'SpreadMethod' }
-  | { type: 'StartOffset' }
-  | { type: 'StdDeviationFeDropShadow' }
-  | { type: 'StdDeviationFeGaussianBlur' }
-  | { type: 'Stemh' }
-  | { type: 'Stemv' }
-  | { type: 'StitchTiles' }
-  | { type: 'StrikethroughPosition' }
-  | { type: 'StrikethroughThickness' }
-  | { type: 'String' }
-  | { type: 'Style' }
-  | { type: 'SurfaceScale' }
-  | { type: 'SystemLanguage' }
-  | { type: 'Tabindex' }
-  | { type: 'TableValues' }
-  | { type: 'Target' }
-  | { type: 'TargetX' }
-  | { type: 'TargetY' }
-  | { type: 'TextLength' }
-  | { type: 'Timelinebegin' }
-  | { type: 'Title' }
-  | { type: 'To' }
-  | { type: 'TypeA' }
-  | { type: 'TypeAnimateTransform' }
-  | { type: 'TypeFeColorMatrix' }
-  | { type: 'TypeFeFunc' }
-  | { type: 'TypeFeTurbulence' }
-  | { type: 'TypeScript' }
-  | { type: 'TypeStyle' }
-  | { type: 'U1' }
-  | { type: 'U2' }
-  | { type: 'UnderlinePosition' }
-  | { type: 'UnderlineThickness' }
-  | { type: 'Unicode' }
-  | { type: 'UnicodeRange' }
-  | { type: 'UnitsPerEm' }
-  | { type: 'VAlphabetic' }
-  | { type: 'VHanging' }
-  | { type: 'VIdeographic' }
-  | { type: 'VMathematical' }
-  | { type: 'ValuesFeColorMatrix' }
-  | { type: 'ValuesAnimate' }
-  | { type: 'Version' }
-  | { type: 'VertAdvY' }
-  | { type: 'VertOriginX' }
-  | { type: 'VertOriginY' }
-  | { type: 'ViewBox' }
-  | { type: 'ViewTarget' }
-  | { type: 'WidthFilter' }
-  | { type: 'WidthForeignObject' }
-  | { type: 'WidthImage' }
-  | { type: 'WidthPattern' }
-  | { type: 'WidthRect' }
-  | { type: 'WidthSvg' }
-  | { type: 'WidthSymbol' }
-  | { type: 'WidthUse' }
-  | { type: 'WidthFe' }
-  | { type: 'WidthMask' }
-  | { type: 'Widths' }
-  | { type: 'XAltGlyph' }
-  | { type: 'XCursor' }
-  | { type: 'XFe' }
-  | { type: 'XFePointLight' }
-  | { type: 'XFeSpotLight' }
-  | { type: 'XFilter' }
-  | { type: 'XGeometry' }
-  | { type: 'XGlyphRef' }
-  | { type: 'XHatch' }
-  | { type: 'XMask' }
-  | { type: 'XPattern' }
-  | { type: 'XText' }
-  | { type: 'XTRef' }
-  | { type: 'XHeight' }
-  | { type: 'X1Line' }
-  | { type: 'X1LinearGradient' }
-  | { type: 'X2Line' }
-  | { type: 'X2LinearGradient' }
-  | { type: 'XChannelSelector' }
-  | { type: 'XLinkActuate' }
-  | { type: 'XLinkArcrole' }
-  | { type: 'XLinkHref' }
-  | { type: 'XLinkRole' }
-  | { type: 'XLinkTitle' }
-  | { type: 'XLinkType' }
-  | { type: 'XLinkShow' }
-  | { type: 'XMLNS' }
-  | { type: 'XmlBase' }
-  | { type: 'XmlLang' }
-  | { type: 'XmlSpace' }
-  | { type: 'YAltGlyph' }
-  | { type: 'YCursor' }
-  | { type: 'YFe' }
-  | { type: 'YFePointLight' }
-  | { type: 'YFeSpotLight' }
-  | { type: 'YFilter' }
-  | { type: 'YGeometry' }
-  | { type: 'YGlyphRef' }
-  | { type: 'YHatch' }
-  | { type: 'YMask' }
-  | { type: 'YPattern' }
-  | { type: 'YText' }
-  | { type: 'YTRef' }
-  | { type: 'Y1Line' }
-  | { type: 'Y1LinearGradient' }
-  | { type: 'Y2Line' }
-  | { type: 'Y2LinearGradient' }
-  | { type: 'YChannelSelector' }
-  | { type: 'ZFe' }
-  | { type: 'ZoomAndPan' }
-  | { type: 'AlignmentBaseline' }
-  | { type: 'BaselineShift' }
-  | { type: 'Clip' }
-  | { type: 'ClipPath' }
-  | { type: 'ClipRule' }
-  | { type: 'Color' }
-  | { type: 'ColorInterpolation' }
-  | { type: 'ColorInterpolationFilters' }
-  | { type: 'ColorProfile' }
-  | { type: 'ColorRendering' }
-  | { type: 'Cursor' }
-  | { type: 'Direction' }
-  | { type: 'Display' }
-  | { type: 'DominantBaseline' }
-  | { type: 'EnableBackground' }
-  | { type: 'Fill' }
-  | { type: 'FillOpacity' }
-  | { type: 'FillRule' }
-  | { type: 'Filter' }
-  | { type: 'FloodColor' }
-  | { type: 'FloodOpacity' }
-  | { type: 'Font' }
-  | { type: 'FontFamily' }
-  | { type: 'FontSize' }
-  | { type: 'FontSizeAdjust' }
-  | { type: 'FontStretch' }
-  | { type: 'FontStyle' }
-  | { type: 'FontVariant' }
-  | { type: 'FontWeight' }
-  | { type: 'GlyphOrientationHorizontal' }
-  | { type: 'GlyphOrientationVertical' }
-  | { type: 'ImageRendering' }
-  | { type: 'Kerning' }
-  | { type: 'LetterSpacing' }
-  | { type: 'LightingColor' }
-  | { type: 'MarkerEnd' }
-  | { type: 'MarkerMid' }
-  | { type: 'MarkerStart' }
-  | { type: 'Marker' }
-  | { type: 'Mask' }
-  | { type: 'Opacity' }
-  | { type: 'Overflow' }
-  | { type: 'PaintOrder' }
-  | { type: 'PointerEvents' }
-  | { type: 'ShapeRendering' }
-  | { type: 'StopColor' }
-  | { type: 'StopOpacity' }
-  | { type: 'Stroke' }
-  | { type: 'StrokeDasharray' }
-  | { type: 'StrokeDashoffset' }
-  | { type: 'StrokeLinecap' }
-  | { type: 'StrokeLinejoin' }
-  | { type: 'StrokeMiterlimit' }
-  | { type: 'StrokeOpacity' }
-  | { type: 'StrokeWidth' }
-  | { type: 'TextAnchor' }
-  | { type: 'TextDecoration' }
-  | { type: 'TextRendering' }
-  | { type: 'Transform' }
-  | { type: 'TransformOrigin' }
-  | { type: 'UnicodeBidi' }
-  | { type: 'VectorEffect' }
-  | { type: 'Visibility' }
-  | { type: 'WordSpacing' }
-  | { type: 'WritingMode' }
-  | { type: 'Aliased', /** The prefix assigned to the attribute */
+  | { attribute: 'accentHeight' }
+  | { attribute: 'accumulate' }
+  | { attribute: 'additive' }
+  | { attribute: 'alphabetic' }
+  | { attribute: 'amplitude' }
+  | { attribute: 'arabicForm' }
+  | { attribute: 'ariaActiveDescendant' }
+  | { attribute: 'ariaAtomic' }
+  | { attribute: 'ariaAutocomplete' }
+  | { attribute: 'ariaBusy' }
+  | { attribute: 'ariaChecked' }
+  | { attribute: 'ariaColCount' }
+  | { attribute: 'ariaColIndex' }
+  | { attribute: 'ariaColSpan' }
+  | { attribute: 'ariaControls' }
+  | { attribute: 'ariaCurrent' }
+  | { attribute: 'ariaDescribedBy' }
+  | { attribute: 'ariaDetails' }
+  | { attribute: 'ariaDisabled' }
+  | { attribute: 'ariaDropEffect' }
+  | { attribute: 'ariaErrorMessage' }
+  | { attribute: 'ariaExpanded' }
+  | { attribute: 'ariaFlowTo' }
+  | { attribute: 'ariaGrabbed' }
+  | { attribute: 'ariaHasPopup' }
+  | { attribute: 'ariaHidden' }
+  | { attribute: 'ariaInvalid' }
+  | { attribute: 'ariaKeyshortcuts' }
+  | { attribute: 'ariaLabel' }
+  | { attribute: 'ariaLabelledBy' }
+  | { attribute: 'ariaLevel' }
+  | { attribute: 'ariaLive' }
+  | { attribute: 'ariaModal' }
+  | { attribute: 'ariaMultiline' }
+  | { attribute: 'ariaMultiselectable' }
+  | { attribute: 'ariaOrientation' }
+  | { attribute: 'ariaOwns' }
+  | { attribute: 'ariaPlaceholder' }
+  | { attribute: 'ariaPosInSet' }
+  | { attribute: 'ariaPressed' }
+  | { attribute: 'ariaReadonly' }
+  | { attribute: 'ariaRelevant' }
+  | { attribute: 'ariaRequired' }
+  | { attribute: 'ariaRoleDescription' }
+  | { attribute: 'ariaRowCount' }
+  | { attribute: 'ariaRowIndex' }
+  | { attribute: 'ariaRowSpan' }
+  | { attribute: 'ariaSelected' }
+  | { attribute: 'ariaSetSize' }
+  | { attribute: 'ariaSort' }
+  | { attribute: 'ariaValueMax' }
+  | { attribute: 'ariaValueMin' }
+  | { attribute: 'ariaValueNow' }
+  | { attribute: 'ariaValueText' }
+  | { attribute: 'ascent' }
+  | { attribute: 'attributeName' }
+  | { attribute: 'attributeType' }
+  | { attribute: 'autoFocus' }
+  | { attribute: 'azimuth' }
+  | { attribute: 'baseFrequency' }
+  | { attribute: 'baseProfile' }
+  | { attribute: 'bbox' }
+  | { attribute: 'begin' }
+  | { attribute: 'bias' }
+  | { attribute: 'by' }
+  | { attribute: 'calcMode' }
+  | { attribute: 'capHeight' }
+  | { attribute: 'class' }
+  | { attribute: 'clipPathUnits' }
+  | { attribute: 'contentScriptType' }
+  | { attribute: 'contentStyleType' }
+  | { attribute: 'crossOrigin' }
+  | { attribute: 'cxGeometry' }
+  | { attribute: 'cxRadialGradient' }
+  | { attribute: 'cyGeometry' }
+  | { attribute: 'cyRadialGradient' }
+  | { attribute: 'd' }
+  | { attribute: 'descent' }
+  | { attribute: 'diffuseConstant' }
+  | { attribute: 'divisor' }
+  | { attribute: 'download' }
+  | { attribute: 'dur' }
+  | { attribute: 'dxAltGlyph' }
+  | { attribute: 'dxFeDropShadow' }
+  | { attribute: 'dxFeOffset' }
+  | { attribute: 'dxGlyphRef' }
+  | { attribute: 'dxText' }
+  | { attribute: 'dxtSpan' }
+  | { attribute: 'dyAltGlyph' }
+  | { attribute: 'dyFeDropShadow' }
+  | { attribute: 'dyFeOffset' }
+  | { attribute: 'dyGlyphRef' }
+  | { attribute: 'dyText' }
+  | { attribute: 'dytSpan' }
+  | { attribute: 'edgeModeFeConvolveMatrix' }
+  | { attribute: 'edgeModeFeGaussianBlur' }
+  | { attribute: 'elevation' }
+  | { attribute: 'end' }
+  | { attribute: 'exponent' }
+  | { attribute: 'externalResourcesRequired' }
+  | { attribute: 'fillAnimate' }
+  | { attribute: 'filterRes' }
+  | { attribute: 'filterUnits' }
+  | { attribute: 'format' }
+  | { attribute: 'fr' }
+  | { attribute: 'from' }
+  | { attribute: 'fx' }
+  | { attribute: 'fy' }
+  | { attribute: 'g1' }
+  | { attribute: 'g2' }
+  | { attribute: 'glyphName' }
+  | { attribute: 'glyphRef' }
+  | { attribute: 'gradientTransform' }
+  | { attribute: 'gradientUnits' }
+  | { attribute: 'hanging' }
+  | { attribute: 'hatchContentUnits' }
+  | { attribute: 'hatchUnits' }
+  | { attribute: 'heightFilter' }
+  | { attribute: 'heightForeignObject' }
+  | { attribute: 'heightImage' }
+  | { attribute: 'heightPattern' }
+  | { attribute: 'heightRect' }
+  | { attribute: 'heightSvg' }
+  | { attribute: 'heightSymbol' }
+  | { attribute: 'heightUse' }
+  | { attribute: 'heightFe' }
+  | { attribute: 'heightMask' }
+  | { attribute: 'horizAdvX' }
+  | { attribute: 'horizOriginX' }
+  | { attribute: 'horizOriginY' }
+  | { attribute: 'href' }
+  | { attribute: 'hreflang' }
+  | { attribute: 'id' }
+  | { attribute: 'ideographic' }
+  | { attribute: 'in' }
+  | { attribute: 'in2' }
+  | { attribute: 'intercept' }
+  | { attribute: 'k' }
+  | { attribute: 'k1' }
+  | { attribute: 'k2' }
+  | { attribute: 'k3' }
+  | { attribute: 'k4' }
+  | { attribute: 'kernelMatrix' }
+  | { attribute: 'kernelUnitLength' }
+  | { attribute: 'keyPoints' }
+  | { attribute: 'keySplines' }
+  | { attribute: 'keyTimes' }
+  | { attribute: 'lang' }
+  | { attribute: 'lengthAdjust' }
+  | { attribute: 'limitingConeAngle' }
+  | { attribute: 'local' }
+  | { attribute: 'markerHeight' }
+  | { attribute: 'markerUnits' }
+  | { attribute: 'markerWidth' }
+  | { attribute: 'maskContentUnits' }
+  | { attribute: 'maskUnits' }
+  | { attribute: 'mathematical' }
+  | { attribute: 'max' }
+  | { attribute: 'media' }
+  | { attribute: 'method' }
+  | { attribute: 'min' }
+  | { attribute: 'mode' }
+  | { attribute: 'nameColorProfile' }
+  | { attribute: 'nameFontFace' }
+  | { attribute: 'numOctaves' }
+  | { attribute: 'offsetStop' }
+  | { attribute: 'offsetFe' }
+  | { attribute: 'offsetHatchPath' }
+  | { attribute: 'onAbort' }
+  | { attribute: 'onActivate' }
+  | { attribute: 'onBegin' }
+  | { attribute: 'onCancel' }
+  | { attribute: 'onCanplay' }
+  | { attribute: 'onCanplaythrough' }
+  | { attribute: 'onChange' }
+  | { attribute: 'onClick' }
+  | { attribute: 'onClose' }
+  | { attribute: 'onCopy' }
+  | { attribute: 'onCuechange' }
+  | { attribute: 'onCut' }
+  | { attribute: 'onDblclick' }
+  | { attribute: 'onDrag' }
+  | { attribute: 'onDragend' }
+  | { attribute: 'onDragenter' }
+  | { attribute: 'onDragexit' }
+  | { attribute: 'onDragleave' }
+  | { attribute: 'onDragover' }
+  | { attribute: 'onDragstart' }
+  | { attribute: 'onDrop' }
+  | { attribute: 'onDurationchange' }
+  | { attribute: 'onEmptied' }
+  | { attribute: 'onEnd' }
+  | { attribute: 'onEnded' }
+  | { attribute: 'onError' }
+  | { attribute: 'onFocusIn' }
+  | { attribute: 'onFocusOut' }
+  | { attribute: 'onFocus' }
+  | { attribute: 'onInput' }
+  | { attribute: 'onInvalid' }
+  | { attribute: 'onKeydown' }
+  | { attribute: 'onKeypress' }
+  | { attribute: 'onKeyup' }
+  | { attribute: 'onLoad' }
+  | { attribute: 'onLoadeddata' }
+  | { attribute: 'onLoadedmetadata' }
+  | { attribute: 'onLoadstart' }
+  | { attribute: 'onMousedown' }
+  | { attribute: 'onMouseenter' }
+  | { attribute: 'onMouseleave' }
+  | { attribute: 'onMousemove' }
+  | { attribute: 'onMouseout' }
+  | { attribute: 'onMouseover' }
+  | { attribute: 'onMouseup' }
+  | { attribute: 'onPaste' }
+  | { attribute: 'onPause' }
+  | { attribute: 'onPlay' }
+  | { attribute: 'onPlaying' }
+  | { attribute: 'onProgress' }
+  | { attribute: 'onRatechange' }
+  | { attribute: 'onRepeat' }
+  | { attribute: 'onReset' }
+  | { attribute: 'onResize' }
+  | { attribute: 'onScroll' }
+  | { attribute: 'onSeeked' }
+  | { attribute: 'onSeeking' }
+  | { attribute: 'onSelect' }
+  | { attribute: 'onShow' }
+  | { attribute: 'onStalled' }
+  | { attribute: 'onSubmit' }
+  | { attribute: 'onSuspend' }
+  | { attribute: 'onTimeupdate' }
+  | { attribute: 'onToggle' }
+  | { attribute: 'onUnload' }
+  | { attribute: 'onVolumechange' }
+  | { attribute: 'onWaiting' }
+  | { attribute: 'onWheel' }
+  | { attribute: 'onZoom' }
+  | { attribute: 'operatorFeComposite' }
+  | { attribute: 'operatorFeMorphology' }
+  | { attribute: 'order' }
+  | { attribute: 'orient' }
+  | { attribute: 'orientation' }
+  | { attribute: 'origin' }
+  | { attribute: 'overlinePosition' }
+  | { attribute: 'overlineThickness' }
+  | { attribute: 'panose1' }
+  | { attribute: 'path' }
+  | { attribute: 'pathLength' }
+  | { attribute: 'patternContentUnits' }
+  | { attribute: 'patternTransform' }
+  | { attribute: 'patternUnits' }
+  | { attribute: 'ping' }
+  | { attribute: 'pitch' }
+  | { attribute: 'playbackorder' }
+  | { attribute: 'points' }
+  | { attribute: 'pointsAtX' }
+  | { attribute: 'pointsAtY' }
+  | { attribute: 'pointsAtZ' }
+  | { attribute: 'preserveAlpha' }
+  | { attribute: 'preserveAspectRatio' }
+  | { attribute: 'primitiveUnits' }
+  | { attribute: 'radius' }
+  | { attribute: 'referrerPolicy' }
+  | { attribute: 'refX' }
+  | { attribute: 'refY' }
+  | { attribute: 'rel' }
+  | { attribute: 'renderingIntent' }
+  | { attribute: 'repeatCount' }
+  | { attribute: 'repeatDur' }
+  | { attribute: 'requiredExtensions' }
+  | { attribute: 'requiredFeatures' }
+  | { attribute: 'restart' }
+  | { attribute: 'result' }
+  | { attribute: 'role' }
+  | { attribute: 'rotateText' }
+  | { attribute: 'rotateAnimate' }
+  | { attribute: 'rotateHatch' }
+  | { attribute: 'rx' }
+  | { attribute: 'ry' }
+  | { attribute: 'rGeometry' }
+  | { attribute: 'rRadialGradient' }
+  | { attribute: 'scale' }
+  | { attribute: 'seed' }
+  | { attribute: 'side' }
+  | { attribute: 'slopeFont' }
+  | { attribute: 'slopeFe' }
+  | { attribute: 'solidColor' }
+  | { attribute: 'solidOpacity' }
+  | { attribute: 'spacing' }
+  | { attribute: 'specularConstant' }
+  | { attribute: 'specularExponent' }
+  | { attribute: 'spreadMethod' }
+  | { attribute: 'startOffset' }
+  | { attribute: 'stdDeviationFeDropShadow' }
+  | { attribute: 'stdDeviationFeGaussianBlur' }
+  | { attribute: 'stemh' }
+  | { attribute: 'stemv' }
+  | { attribute: 'stitchTiles' }
+  | { attribute: 'strikethroughPosition' }
+  | { attribute: 'strikethroughThickness' }
+  | { attribute: 'string' }
+  | { attribute: 'style' }
+  | { attribute: 'surfaceScale' }
+  | { attribute: 'systemLanguage' }
+  | { attribute: 'tabindex' }
+  | { attribute: 'tableValues' }
+  | { attribute: 'target' }
+  | { attribute: 'targetX' }
+  | { attribute: 'targetY' }
+  | { attribute: 'textLength' }
+  | { attribute: 'timelinebegin' }
+  | { attribute: 'title' }
+  | { attribute: 'to' }
+  | { attribute: 'typeA' }
+  | { attribute: 'typeAnimateTransform' }
+  | { attribute: 'typeFeColorMatrix' }
+  | { attribute: 'typeFeFunc' }
+  | { attribute: 'typeFeTurbulence' }
+  | { attribute: 'typeScript' }
+  | { attribute: 'typeStyle' }
+  | { attribute: 'u1' }
+  | { attribute: 'u2' }
+  | { attribute: 'underlinePosition' }
+  | { attribute: 'underlineThickness' }
+  | { attribute: 'unicode' }
+  | { attribute: 'unicodeRange' }
+  | { attribute: 'unitsPerEm' }
+  | { attribute: 'vAlphabetic' }
+  | { attribute: 'vHanging' }
+  | { attribute: 'vIdeographic' }
+  | { attribute: 'vMathematical' }
+  | { attribute: 'valuesFeColorMatrix' }
+  | { attribute: 'valuesAnimate' }
+  | { attribute: 'version' }
+  | { attribute: 'vertAdvY' }
+  | { attribute: 'vertOriginX' }
+  | { attribute: 'vertOriginY' }
+  | { attribute: 'viewBox' }
+  | { attribute: 'viewTarget' }
+  | { attribute: 'widthFilter' }
+  | { attribute: 'widthForeignObject' }
+  | { attribute: 'widthImage' }
+  | { attribute: 'widthPattern' }
+  | { attribute: 'widthRect' }
+  | { attribute: 'widthSvg' }
+  | { attribute: 'widthSymbol' }
+  | { attribute: 'widthUse' }
+  | { attribute: 'widthFe' }
+  | { attribute: 'widthMask' }
+  | { attribute: 'widths' }
+  | { attribute: 'xAltGlyph' }
+  | { attribute: 'xCursor' }
+  | { attribute: 'xFe' }
+  | { attribute: 'xFePointLight' }
+  | { attribute: 'xFeSpotLight' }
+  | { attribute: 'xFilter' }
+  | { attribute: 'xGeometry' }
+  | { attribute: 'xGlyphRef' }
+  | { attribute: 'xHatch' }
+  | { attribute: 'xMask' }
+  | { attribute: 'xPattern' }
+  | { attribute: 'xText' }
+  | { attribute: 'xtRef' }
+  | { attribute: 'xHeight' }
+  | { attribute: 'x1Line' }
+  | { attribute: 'x1LinearGradient' }
+  | { attribute: 'x2Line' }
+  | { attribute: 'x2LinearGradient' }
+  | { attribute: 'xChannelSelector' }
+  | { attribute: 'xLinkActuate' }
+  | { attribute: 'xLinkArcrole' }
+  | { attribute: 'xLinkHref' }
+  | { attribute: 'xLinkRole' }
+  | { attribute: 'xLinkTitle' }
+  | { attribute: 'xLinkType' }
+  | { attribute: 'xLinkShow' }
+  | { attribute: 'xmlns' }
+  | { attribute: 'xmlBase' }
+  | { attribute: 'xmlLang' }
+  | { attribute: 'xmlSpace' }
+  | { attribute: 'yAltGlyph' }
+  | { attribute: 'yCursor' }
+  | { attribute: 'yFe' }
+  | { attribute: 'yFePointLight' }
+  | { attribute: 'yFeSpotLight' }
+  | { attribute: 'yFilter' }
+  | { attribute: 'yGeometry' }
+  | { attribute: 'yGlyphRef' }
+  | { attribute: 'yHatch' }
+  | { attribute: 'yMask' }
+  | { attribute: 'yPattern' }
+  | { attribute: 'yText' }
+  | { attribute: 'ytRef' }
+  | { attribute: 'y1Line' }
+  | { attribute: 'y1LinearGradient' }
+  | { attribute: 'y2Line' }
+  | { attribute: 'y2LinearGradient' }
+  | { attribute: 'yChannelSelector' }
+  | { attribute: 'zFe' }
+  | { attribute: 'zoomAndPan' }
+  | { attribute: 'alignmentBaseline' }
+  | { attribute: 'baselineShift' }
+  | { attribute: 'clip' }
+  | { attribute: 'clipPath' }
+  | { attribute: 'clipRule' }
+  | { attribute: 'color' }
+  | { attribute: 'colorInterpolation' }
+  | { attribute: 'colorInterpolationFilters' }
+  | { attribute: 'colorProfile' }
+  | { attribute: 'colorRendering' }
+  | { attribute: 'cursor' }
+  | { attribute: 'direction' }
+  | { attribute: 'display' }
+  | { attribute: 'dominantBaseline' }
+  | { attribute: 'enableBackground' }
+  | { attribute: 'fill' }
+  | { attribute: 'fillOpacity' }
+  | { attribute: 'fillRule' }
+  | { attribute: 'filter' }
+  | { attribute: 'floodColor' }
+  | { attribute: 'floodOpacity' }
+  | { attribute: 'font' }
+  | { attribute: 'fontFamily' }
+  | { attribute: 'fontSize' }
+  | { attribute: 'fontSizeAdjust' }
+  | { attribute: 'fontStretch' }
+  | { attribute: 'fontStyle' }
+  | { attribute: 'fontVariant' }
+  | { attribute: 'fontWeight' }
+  | { attribute: 'glyphOrientationHorizontal' }
+  | { attribute: 'glyphOrientationVertical' }
+  | { attribute: 'imageRendering' }
+  | { attribute: 'kerning' }
+  | { attribute: 'letterSpacing' }
+  | { attribute: 'lightingColor' }
+  | { attribute: 'markerEnd' }
+  | { attribute: 'markerMid' }
+  | { attribute: 'markerStart' }
+  | { attribute: 'marker' }
+  | { attribute: 'mask' }
+  | { attribute: 'opacity' }
+  | { attribute: 'overflow' }
+  | { attribute: 'paintOrder' }
+  | { attribute: 'pointerEvents' }
+  | { attribute: 'shapeRendering' }
+  | { attribute: 'stopColor' }
+  | { attribute: 'stopOpacity' }
+  | { attribute: 'stroke' }
+  | { attribute: 'strokeDasharray' }
+  | { attribute: 'strokeDashoffset' }
+  | { attribute: 'strokeLinecap' }
+  | { attribute: 'strokeLinejoin' }
+  | { attribute: 'strokeMiterlimit' }
+  | { attribute: 'strokeOpacity' }
+  | { attribute: 'strokeWidth' }
+  | { attribute: 'textAnchor' }
+  | { attribute: 'textDecoration' }
+  | { attribute: 'textRendering' }
+  | { attribute: 'transform' }
+  | { attribute: 'transformOrigin' }
+  | { attribute: 'unicodeBidi' }
+  | { attribute: 'vectorEffect' }
+  | { attribute: 'visibility' }
+  | { attribute: 'wordSpacing' }
+  | { attribute: 'writingMode' }
+  | { attribute: 'aliased', /** The prefix assigned to the attribute */
   prefix: PrefixNapi, /** The associated attribute */
 name: [string, string] }
-| { type: 'Unknown', /** The qualified name of the attribute */
+| { attribute: 'unknown', /** The qualified name of the attribute */
 name: QualNameNapi }
 
 /**
@@ -614,119 +614,119 @@ name: QualNameNapi }
  * [MDN | SVG element reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element)
  */
 export type ElementIdNapi =
-  | { type: 'A' }
-  | { type: 'AltGlyph' }
-  | { type: 'AltGlyphDef' }
-  | { type: 'AltGlyphItem' }
-  | { type: 'Animate' }
-  | { type: 'AnimateColor' }
-  | { type: 'AnimateMotion' }
-  | { type: 'AnimateTransform' }
-  | { type: 'Circle' }
-  | { type: 'ClipPath' }
-  | { type: 'ColorProfile' }
-  | { type: 'Cursor' }
-  | { type: 'Defs' }
-  | { type: 'Desc' }
-  | { type: 'Ellipse' }
-  | { type: 'FeBlend' }
-  | { type: 'FeColorMatrix' }
-  | { type: 'FeComponentTransfer' }
-  | { type: 'FeComposite' }
-  | { type: 'FeConvolveMatrix' }
-  | { type: 'FeDiffuseLighting' }
-  | { type: 'FeDisplacementMap' }
-  | { type: 'FeDistantLight' }
-  | { type: 'FeDropShadow' }
-  | { type: 'FeFlood' }
-  | { type: 'FeFuncA' }
-  | { type: 'FeFuncB' }
-  | { type: 'FeFuncG' }
-  | { type: 'FeFuncR' }
-  | { type: 'FeGaussianBlur' }
-  | { type: 'FeImage' }
-  | { type: 'FeMerge' }
-  | { type: 'FeMergeNode' }
-  | { type: 'FeMorphology' }
-  | { type: 'FeOffset' }
-  | { type: 'FePointLight' }
-  | { type: 'FeSpecularLighting' }
-  | { type: 'FeSpotLight' }
-  | { type: 'FeTile' }
-  | { type: 'FeTurbulence' }
-  | { type: 'Filter' }
-  | { type: 'Font' }
-  | { type: 'FontFace' }
-  | { type: 'FontFaceFormat' }
-  | { type: 'FontFaceName' }
-  | { type: 'FontFaceSrc' }
-  | { type: 'FontFaceURI' }
-  | { type: 'ForeignObject' }
-  | { type: 'G' }
-  | { type: 'Glyph' }
-  | { type: 'GlyphRef' }
-  | { type: 'Hatch' }
-  | { type: 'HatchPath' }
-  | { type: 'HKern' }
-  | { type: 'Image' }
-  | { type: 'Line' }
-  | { type: 'LinearGradient' }
-  | { type: 'Marker' }
-  | { type: 'Mask' }
-  | { type: 'Metadata' }
-  | { type: 'MissingGlyph' }
-  | { type: 'MPath' }
-  | { type: 'Path' }
-  | { type: 'Pattern' }
-  | { type: 'Polygon' }
-  | { type: 'Polyline' }
-  | { type: 'RadialGradient' }
-  | { type: 'Rect' }
-  | { type: 'Script' }
-  | { type: 'Set' }
-  | { type: 'SolidColor' }
-  | { type: 'Stop' }
-  | { type: 'Style' }
-  | { type: 'Svg' }
-  | { type: 'Switch' }
-  | { type: 'Symbol' }
-  | { type: 'Text' }
-  | { type: 'TextPath' }
-  | { type: 'Title' }
-  | { type: 'TRef' }
-  | { type: 'TSpan' }
-  | { type: 'Use' }
-  | { type: 'View' }
-  | { type: 'VKern' }
-  | { type: 'Aliased', /** The prefix assigned to the element */
+  | { element: 'a' }
+  | { element: 'altGlyph' }
+  | { element: 'altGlyphDef' }
+  | { element: 'altGlyphItem' }
+  | { element: 'animate' }
+  | { element: 'animateColor' }
+  | { element: 'animateMotion' }
+  | { element: 'animateTransform' }
+  | { element: 'circle' }
+  | { element: 'clipPath' }
+  | { element: 'colorProfile' }
+  | { element: 'cursor' }
+  | { element: 'defs' }
+  | { element: 'desc' }
+  | { element: 'ellipse' }
+  | { element: 'feBlend' }
+  | { element: 'feColorMatrix' }
+  | { element: 'feComponentTransfer' }
+  | { element: 'feComposite' }
+  | { element: 'feConvolveMatrix' }
+  | { element: 'feDiffuseLighting' }
+  | { element: 'feDisplacementMap' }
+  | { element: 'feDistantLight' }
+  | { element: 'feDropShadow' }
+  | { element: 'feFlood' }
+  | { element: 'feFuncA' }
+  | { element: 'feFuncB' }
+  | { element: 'feFuncG' }
+  | { element: 'feFuncR' }
+  | { element: 'feGaussianBlur' }
+  | { element: 'feImage' }
+  | { element: 'feMerge' }
+  | { element: 'feMergeNode' }
+  | { element: 'feMorphology' }
+  | { element: 'feOffset' }
+  | { element: 'fePointLight' }
+  | { element: 'feSpecularLighting' }
+  | { element: 'feSpotLight' }
+  | { element: 'feTile' }
+  | { element: 'feTurbulence' }
+  | { element: 'filter' }
+  | { element: 'font' }
+  | { element: 'fontFace' }
+  | { element: 'fontFaceFormat' }
+  | { element: 'fontFaceName' }
+  | { element: 'fontFaceSrc' }
+  | { element: 'fontFaceUri' }
+  | { element: 'foreignObject' }
+  | { element: 'g' }
+  | { element: 'glyph' }
+  | { element: 'glyphRef' }
+  | { element: 'hatch' }
+  | { element: 'hatchPath' }
+  | { element: 'hKern' }
+  | { element: 'image' }
+  | { element: 'line' }
+  | { element: 'linearGradient' }
+  | { element: 'marker' }
+  | { element: 'mask' }
+  | { element: 'metadata' }
+  | { element: 'missingGlyph' }
+  | { element: 'mPath' }
+  | { element: 'path' }
+  | { element: 'pattern' }
+  | { element: 'polygon' }
+  | { element: 'polyline' }
+  | { element: 'radialGradient' }
+  | { element: 'rect' }
+  | { element: 'script' }
+  | { element: 'set' }
+  | { element: 'solidColor' }
+  | { element: 'stop' }
+  | { element: 'style' }
+  | { element: 'svg' }
+  | { element: 'switch' }
+  | { element: 'symbol' }
+  | { element: 'text' }
+  | { element: 'textPath' }
+  | { element: 'title' }
+  | { element: 'tRef' }
+  | { element: 'tSpan' }
+  | { element: 'use' }
+  | { element: 'view' }
+  | { element: 'vKern' }
+  | { element: 'aliased', /** The prefix assigned to the element */
   prefix: PrefixNapi, /** The associated element */
 name: [string, string] }
-| { type: 'Unknown', /** The qualified name of the attribute */
+| { element: 'unknown', /** The qualified name of the attribute */
 name: QualNameNapi }
 
 /** A namespace for a qualified name's prefix */
 export type NSNapi =
-  | { type: 'SVG' }
-  | { type: 'HTML' }
-  | { type: 'XML' }
-  | { type: 'XMLNS' }
-  | { type: 'XLink' }
-  | { type: 'MathML' }
-  | { type: 'Unknown', /** Namespace URI */
+  | { namespace: 'svg' }
+  | { namespace: 'html' }
+  | { namespace: 'xml' }
+  | { namespace: 'xmlns' }
+  | { namespace: 'xlink' }
+  | { namespace: 'mathml' }
+  | { namespace: 'unknown', /** Namespace URI */
 uri: string }
 
 /** A prefix for a qualified name, e.g. `xlink` of `xlink:href` */
 export type PrefixNapi =
-  | { type: 'SVG' }
-  | { type: 'HTML' }
-  | { type: 'XML' }
-  | { type: 'XMLNS' }
-  | { type: 'XLink' }
-  | { type: 'MathML' }
-  | { type: 'Unknown', /** The prefix name, e.g. `prefix` of `xmlns:prefix="<url>"` */
+  | { name: 'svg' }
+  | { name: 'html' }
+  | { name: 'xml' }
+  | { name: 'xmlns' }
+  | { name: 'xlink' }
+  | { name: 'mathml' }
+  | { name: 'unknown', /** The prefix name, e.g. `prefix` of `xmlns:prefix="<url>"` */
   prefix?: string, /** The unique resource identifier, e.g. `<url>` of `xmlns:prefix="<url>"` */
 ns: NSNapi }
-| { type: 'Aliased', /** The prefix that's being aliased */
+| { name: 'aliased', /** The prefix that's being aliased */
 prefix: [string, string], /** The name assigned to the prefix */
 alias?: string }
 
@@ -1909,10 +1909,10 @@ export interface Precheck {
 
 /** Various types of ways prefixes can be generated for an id. */
 export type PrefixGenerator =
-  | { type: 'Prefix', /** A string to use as a prefix */
+  | { method: 'Prefix', /** A string to use as a prefix */
 prefix: string }
-| { type: 'None' }
-| { type: 'Default' }
+| { method: 'None' }
+| { method: 'Default' }
 
 /**
  * Prefix element ids and classnames with the filename or provided string. This

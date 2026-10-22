@@ -91,7 +91,7 @@ macro_rules! define_prefix {
         }
 
         #[cfg(feature = "napi")]
-        #[napi]
+        #[napi(discriminant = "name", discriminant_case = "lowercase")]
         /// A prefix for a qualified name, e.g. `xlink` of `xlink:href`
         pub enum PrefixNapi {
             $(
@@ -142,7 +142,7 @@ macro_rules! define_prefix {
         }
 
         #[cfg(feature = "napi")]
-        #[napi]
+        #[napi(discriminant = "namespace", discriminant_case = "lowercase")]
         /// A namespace for a qualified name's prefix
         pub enum NSNapi {
             $(
